@@ -48,7 +48,7 @@ def classement_eleves(dico_moyenne):
         if i==values:
             print(
                 f"{compteur} : {key} avec une moyenne de {dico_moyenne[key]}/20")
-    i-=1
+        i-=1
 
 
 classement_eleves(dico_moyenne)

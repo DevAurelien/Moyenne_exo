@@ -42,17 +42,12 @@ print(dico_moyenne)
 
 
 def classement_eleves(dico_moyenne):
-    i, compteur = 0, 1
-    while i != 20:
-        if i in dico_moyenne:
-            print(
-                f"{compteur} : {dictionnaire_objet[key].nom} avec une moyenne de {dictionnaire_objet[key].moyenne}/20")
-            compteur += 1
-        else:
-            i += 1
-        print(i)
-        if i > 40:
-            break
+    i, compteur = 20, 1
+    while not i == 0:
+for key, values in dico_moyenne.items():
+print(
+                f"{compteur} : {key} avec une moyenne de {dico_moyenne[key]}/20")
+    i-=1
 
 
 classement_eleves(dico_moyenne)

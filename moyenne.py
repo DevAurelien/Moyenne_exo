@@ -44,11 +44,11 @@ print(dico_moyenne)
 def classement_eleves(dico_moyenne):
     i, compteur = 20, 1
     while not i == 0:
-    for key, values in dico_moyenne.items():
-        if i==values:
-            print(
+        for key, values in dico_moyenne.items():
+            if i==values:
+                print(
                 f"{compteur} : {key} avec une moyenne de {dico_moyenne[key]}/20")
-        i-=1
+    i-=1
 
 
 classement_eleves(dico_moyenne)

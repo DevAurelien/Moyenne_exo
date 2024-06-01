@@ -1,4 +1,4 @@
-# Tao = [18, 12, 3, 5, 19]
+il# Tao = [18, 12, 3, 5, 19]
 # Josette = [20, 2, 12, 18, 14]
 # Patrick = [2, 4, 6, 18, 17]
 # Pema = [3, 19, 15, 3, 12]
@@ -44,8 +44,9 @@ print(dico_moyenne)
 def classement_eleves(dico_moyenne):
     i, compteur = 20, 1
     while not i == 0:
-for key, values in dico_moyenne.items():
-print(
+    for key, values in dico_moyenne.items():
+        if i==values:
+            print(
                 f"{compteur} : {key} avec une moyenne de {dico_moyenne[key]}/20")
     i-=1
 

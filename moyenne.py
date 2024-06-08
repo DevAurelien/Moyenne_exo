@@ -26,12 +26,12 @@ dico_moyenne = {cle: dictionnaire_objet[cle].moyenne for cle in dictionnaire_obj
 
 def classement_eleves(dico_moyenne):
     dico_2 = sorted(dico_moyenne.items(), key=lambda t: t[1], reverse=True)
-    print("\n".join([f"{i + 1:2} : {dico_2[i][0]} avec une moyenne de {dico_2[i][1]}/20" for i in range(len(dico_2))]))
+    return "\n".join([f"{i + 1:2} : {dico_2[i][0]} avec une moyenne de {dico_2[i][1]}/20" for i in range(len(dico_2))])
 
 
 if __name__ == "__main__":
     print("\n", dico_moyenne)
     print()
-    classement_eleves(dico_moyenne)
+    print(classement_eleves(dico_moyenne))
 
 

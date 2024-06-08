@@ -10,37 +10,28 @@ class Etudiant():
     def __init__(self, nom, notes):
         self.nom = nom
         self.notes = notes
-        self.moyenne = self.moyenne_eleves()
+        self.moyenne = self.moyenne_eleve()
 
-    def moyenne_eleves(self) -> dict:
-        moyenne = {}
-        resultat = round(sum(int(element) for element in self.notes) / len(self.notes))
-        moyenne[self.nom] = resultat
-        return moyenne
+    def moyenne_eleve(self) -> int:
+        return round(sum(int(element) for element in self.notes) / len(self.notes))
 
 
 for eleve in document:
     classeur = "".join("".join(eleve.split("->")).split(",")).split()  # separate string
-    nom_etudiant = classeur[0]  # take name
-    classeur.pop(0)  # delete name
+    nom_etudiant = classeur.pop(0)
     dictionnaire_objet[nom_etudiant] = Etudiant(nom_etudiant, classeur)  # create studients instances in dictionnary
 
-dico_moyenne = {}
-for cle in dictionnaire_objet.keys():
-    dico_moyenne.update(dictionnaire_objet[cle].moyenne)
-
-print(dico_moyenne)
+dico_moyenne = {cle: dictionnaire_objet[cle].moyenne for cle in dictionnaire_objet.keys()}
 
 
 def classement_eleves(dico_moyenne):
-    i, compteur = 20, 1
-    while not i == 0:
-        for key, values in dico_moyenne.items():
-            if i == values:
-                print(
-                f"{compteur} : {key} avec une moyenne de {dico_moyenne[key]}/20")
-                compteur +=1
-        i -= 1
+    dico_2 = sorted(dico_moyenne.items(), key=lambda t: t[1], reverse=True)
+    print("\n".join([f"{i + 1:2} : {dico_2[i][0]} avec une moyenne de {dico_2[i][1]}/20" for i in range(len(dico_2))]))
 
 
-classement_eleves(dico_moyenne)
+if __name__ == "__main__":
+    print("\n", dico_moyenne)
+    print()
+    classement_eleves(dico_moyenne)
+
+
